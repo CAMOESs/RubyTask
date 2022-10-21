@@ -27,7 +27,7 @@ class Cart
 
   def check_out
     return if owner.wallet.balance < total_amount
-    self.owner.wallet.withdraw(total_amount)
+    self.owner.wallet = self.owner.wallet.withdraw(total_amount)
     item.owner.wallet.deposit(total_amount)
     item.owner = self.owner
     @items = []
