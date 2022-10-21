@@ -4,7 +4,6 @@ require_relative "ownable"
 class Cart
   include Ownable
   include ItemManager
-  
   #attr_accessor :owner la
 
   def initialize(owner)
@@ -30,7 +29,10 @@ class Cart
     puts total_amount
     puts owner.wallet.balance
     return if owner.wallet.balance < total_amount
-    
+    owner.wallet.balance = owner.wallet.balance.withdraw(total_amount)
+    #self.owner.wallet = self.owner.wallet.withdraw(total_amount)
+    #item.owner.wallet.deposit(total_amount)
+    #item.owner = self.owner
     @items = []
   # ## 要件
   #   - カートの中身（Cart#items）のすべてのアイテムの購入金額が、カートのオーナーのウォレットからアイテムのオーナーのウォレットに移されること。
