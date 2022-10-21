@@ -1,9 +1,7 @@
-require_relative "item_manager"
-require_relative "ownable"
 
 class Cart
-  #include Ownable
-  #include ItemManager
+  include Ownable
+  include ItemManager
   #attr_accessor :owner la
 
   def initialize(owner)
